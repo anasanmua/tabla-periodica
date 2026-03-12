@@ -6,21 +6,29 @@ import { SponsorsSection } from "@/components/home/sponsors-section"
 export default function Home() {
   return (
     <div className="flex flex-col">
-      {/* Hero Image */}
       <section className="w-full">
         <div className="relative w-full aspect-[16/10] md:aspect-[16/8] lg:aspect-[16/7]">
-          <Image
-            src="/images/hero-periodic-table.jpg"
-            alt="Una Tabla Periodica con mucha vida - Los elementos dan la cara"
-            fill
-            className="object-cover"
-            priority
-          />
+
+          {/* Capa 2: Overlay semitransparente */}
+          <div className="absolute inset-0 bg-black/22" />
+
+          {/* Capa 3: Imagen principal centrada */}
+          <div className="absolute inset-0 flex items-center justify-center p-4">
+            <div className="relative w-full h-full max-w-5xl">
+              <Image
+                src="/images/comic/tabla_header.jpg"
+                alt="Una Tabla Periodica con mucha vida - Los elementos dan la cara"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Noche de los Investigadores */}
-      <section className="bg-white py-8 text-center">
+      <section className="bg-white/90 backdrop-blur-sm py-8 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-[#1a3a5c] mb-2">
           Noche de los Investigadores!
         </h2>
@@ -28,7 +36,7 @@ export default function Home() {
       </section>
 
       {/* Bienvenidos Section */}
-      <section className="bg-white py-12 px-4">
+      <section className="bg-white/90 backdrop-blur-sm py-12 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-[#1a3a5c] mb-6">
             Bienvenidos!

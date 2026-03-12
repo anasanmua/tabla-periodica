@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
-import { Lato } from 'next/font/google'
+import { Raleway } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 
-const lato = Lato({ 
+const raleway = Raleway({
   subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
-  variable: "--font-lato"
+  weight: ["300", "400", "500","600", "900"],
+  variable: "--font-sans"
 });
 
 export const metadata: Metadata = {
@@ -41,7 +41,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${lato.variable} font-sans antialiased`}>
+      <body
+        className={`${raleway.variable} font-sans antialiased bg-fixed bg-cover bg-center bg-no-repeat`}
+        style={{
+          backgroundImage: "url('/images/bg.png')",
+          width: "70%",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
         <Header />
         <main className="min-h-screen">
           {children}

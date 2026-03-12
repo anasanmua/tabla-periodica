@@ -1,123 +1,107 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { useState } from "react"
-import { ChevronDown, Menu, X, Twitter } from "lucide-react"
-import { cn } from "@/lib/utils"
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { ChevronDown, Menu, X, Clock } from "lucide-react";
+import { cn } from "@/lib/utils";
+import xIcon from "@/public/images/logos/x.svg";
 
 const navigation = [
   { name: "Inicio", href: "/" },
-  { 
-    name: "Quienes", 
+  {
+    name: "Quienes",
     href: "/quienes",
     submenu: [
       { name: "Profesorado Quimica Inorganica", href: "/quienes/profesorado" },
       { name: "Alumnado Facultad de Quimica", href: "/quienes/alumnado" },
-    ]
+    ],
   },
   { name: "Book", href: "/book" },
-  { 
-    name: "Videos", 
+  {
+    name: "Videos",
     href: "/videos",
     submenu: [
-      { name: "Un Desfile Con Mucha Quimica", href: "/videos/un-desfile-con-mucha-quimica" },
+      {
+        name: "Un Desfile Con Mucha Quimica",
+        href: "/videos/un-desfile-con-mucha-quimica",
+      },
       { name: "La, Ca, Ta, Am, Fr Y Ag", href: "/videos/la-ca-ta-am-fr-y-ag" },
-    ]
+    ],
   },
-  { 
-    name: "Comic", 
+  {
+    name: "Comic",
     href: "/comic",
     submenu: [
       { name: "Comic De La Tabla Periodica Espanol", href: "/comic/espanol" },
       { name: "Comic De La Tabla Periodica Ingles", href: "/comic/ingles" },
-    ]
+    ],
   },
-  { 
-    name: "Multimedia", 
+  {
+    name: "Multimedia",
     href: "/multimedia",
     submenu: [
-      { name: "Posters Alumnado 2020/2021", href: "/multimedia/posters-alumnado-2020-2021" },
-    ]
+      {
+        name: "Posters Alumnado 2020/2021",
+        href: "/multimedia/posters-alumnado-2020-2021",
+      },
+    ],
   },
   { name: "Dossier de prensa", href: "/dossier-de-prensa" },
   { name: "Contacto", href: "/contacto" },
-]
+];
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   return (
     <header className="w-full">
       {/* Top bar */}
       <div className="bg-[#1a3a5c] text-white text-sm py-2 px-4">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
+        <div className="max-w-4xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-4">
+            <Clock className="w-4 h-4" />
             <span>marzo 11, 2026</span>
             <span>150 Aniversario de la Tabla Periodica</span>
           </div>
-          <Link 
-            href="https://twitter.com" 
-            target="_blank" 
+          <Link
+            href="https://twitter.com"
+            target="_blank"
             className="hover:text-gray-300 transition-colors"
             aria-label="Twitter"
           >
-            <Twitter className="w-4 h-4" />
+            <Image
+              src={xIcon}
+              alt="X"
+              width={16}
+              height={16}
+              className="w-4 h-4 filter brightness-0 invert"
+            />
           </Link>
         </div>
       </div>
 
-      {/* Logo section */}
       <div className="bg-white py-4 px-4">
-        <div className="max-w-6xl mx-auto flex justify-center items-center gap-6 flex-wrap">
-          <Link href="https://www.us.es" target="_blank" className="flex-shrink-0">
-            <Image
-              src="/images/logos/universidad-sevilla.jpg"
-              alt="Universidad de Sevilla"
-              width={80}
-              height={80}
-              className="h-16 w-auto"
-            />
-          </Link>
-          <Link href="https://www.ciencia.gob.es" target="_blank" className="flex-shrink-0">
-            <Image
-              src="/images/logos/gobierno-espana.jpg"
-              alt="Gobierno de Espana - Ministerio de Ciencia"
-              width={120}
-              height={60}
-              className="h-12 w-auto"
-            />
-          </Link>
-          <Link href="https://www.csic.es" target="_blank" className="flex-shrink-0">
-            <Image
-              src="/images/logos/csic.jpg"
-              alt="CSIC"
-              width={100}
-              height={40}
-              className="h-10 w-auto"
-            />
-          </Link>
-          <Link href="https://www.fecyt.es" target="_blank" className="flex-shrink-0">
-            <Image
-              src="/images/logos/fecyt.jpg"
-              alt="FECYT"
-              width={120}
-              height={40}
-              className="h-10 w-auto"
-            />
-          </Link>
+        <div className="max-w-4xl mx-auto flex justify-center items-center gap-6 flex-wrap">
+          <Image
+            src="/images/logos/logo_header.jpg"
+            alt="Universidad de Sevilla"
+            width={200}
+            height={200}
+            className="h-25 w-auto"
+          />
         </div>
       </div>
 
       {/* Navigation */}
       <nav className="bg-white border-t border-gray-200">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto px-4">
           {/* Desktop Navigation */}
           <div className="hidden lg:flex justify-center">
             {navigation.map((item) => (
-              <div 
-                key={item.name} 
+              <div
+                key={item.name}
                 className="relative group"
                 onMouseEnter={() => item.submenu && setOpenSubmenu(item.name)}
                 onMouseLeave={() => setOpenSubmenu(null)}
@@ -127,7 +111,7 @@ export function Header() {
                   className={cn(
                     "flex items-center gap-1 px-4 py-3 text-sm font-medium transition-colors",
                     "text-gray-700 hover:bg-[#1a3a5c] hover:text-white",
-                    "group-hover:bg-[#1a3a5c] group-hover:text-white"
+                    "group-hover:bg-[#1a3a5c] group-hover:text-white",
                   )}
                 >
                   {item.name}
@@ -158,7 +142,11 @@ export function Header() {
               className="p-2 text-gray-700 hover:bg-gray-100 rounded"
               aria-label={mobileMenuOpen ? "Cerrar menu" : "Abrir menu"}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -198,5 +186,5 @@ export function Header() {
         )}
       </nav>
     </header>
-  )
+  );
 }
