@@ -4,51 +4,31 @@ import Link from "next/link"
 const mainSponsors = [
   {
     name: "Universidad de Sevilla",
-    logo: "/images/logos/universidad-sevilla.jpg",
+    logo: "/images/logos/us_logo.jpeg",
     url: "https://www.us.es"
   },
   {
     name: "Gobierno de Espana",
-    logo: "/images/logos/gobierno-espana.jpg",
+    logo: "/images/logos/gob_esp.png",
     url: "https://www.ciencia.gob.es"
   },
   {
-    name: "CSIC",
-    logo: "/images/logos/csic.jpg",
-    url: "https://www.csic.es"
-  },
-  {
     name: "Casa de la Ciencia",
-    logo: "/images/logos/casa-ciencia.jpg",
+    logo: "/images/logos/casa_ciencia.png",
     url: "https://www.casadelaciencia.csic.es"
   },
   {
     name: "Junta de Andalucia",
-    logo: "/images/logos/junta-andalucia.jpg",
+    logo: "/images/logos/junta_andalucia.png",
     url: "https://www.juntadeandalucia.es"
   },
 ]
 
 const secondarySponsors = [
   {
-    name: "Marsupi",
-    logo: "/images/logos/marsupi.jpg",
-    url: "#"
-  },
-  {
-    name: "UCC+i",
-    logo: "/images/logos/ucci.jpg",
-    url: "#"
-  },
-  {
-    name: "RSEQ",
-    logo: "/images/logos/rseq.jpg",
-    url: "#"
-  },
-  {
-    name: "Desqbre",
-    logo: "/images/logos/desqbre.jpg",
-    url: "#"
+    name: "CSIC",
+    logo: "/images/logos/logo_footer.jpg",
+    url: "https://www.csic.es"
   },
 ]
 
@@ -63,7 +43,7 @@ export function SponsorsSection() {
               key={sponsor.name}
               href={sponsor.url}
               target="_blank"
-              className="flex-shrink-0 grayscale hover:grayscale-0 transition-all"
+              // className="flex-shrink-0 grayscale hover:grayscale-0 transition-all"
             >
               <Image
                 src={sponsor.logo}
@@ -83,7 +63,7 @@ export function SponsorsSection() {
               key={sponsor.name}
               href={sponsor.url}
               target="_blank"
-              className="flex-shrink-0 grayscale hover:grayscale-0 transition-all"
+              // className="flex-shrink-0 grayscale hover:grayscale-0 transition-all"
             >
               <Image
                 src={sponsor.logo}

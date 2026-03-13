@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { CldImage } from 'next-cloudinary'
 import { useState } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -8,16 +9,48 @@ import { cn } from "@/lib/utils"
 interface GalleryImage {
   src: string
   alt: string
+  isCloudinary?: boolean // Indica si es un ID de Cloudinary o URL estática
 }
 
 interface ImageGalleryProps {
   images: GalleryImage[]
   columns?: 2 | 3 | 4
+  useCloudinary?: boolean // Por defecto para toda la galería
 }
 
-export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
+export function ImageGallery({ images, columns = 3, useCloudinary = false }: ImageGalleryProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
+
+  // Helper para renderizar imagen según tipo
+  const renderImage = (image: GalleryImage, isThumbnail: boolean = false) => {
+    const isCloudinaryImage = image.isCloudinary ?? useCloudinary
+
+    if (isCloudinaryImage) {
+      return (
+        <CldImage
+          src={image.src}
+          alt={image.alt}
+          fill
+          crop={isThumbnail ? "fill" : "fit"}
+          gravity="auto"
+          quality="auto"
+          format="auto"
+          sizes={isThumbnail ? "(max-width: 768px) 50vw, 33vw" : "100vw"}
+        />
+      )
+    } else {
+      return (
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          className={isThumbnail ? "object-cover" : "object-contain"}
+          sizes={isThumbnail ? "(max-width: 768px) 50vw, 33vw" : "100vw"}
+        />
+      )
+    }
+  }
 
   const openLightbox = (index: number) => {
     setCurrentIndex(index)
@@ -51,13 +84,7 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
             onClick={() => openLightbox(index)}
             className="relative aspect-[4/3] overflow-hidden rounded bg-gray-100 hover:opacity-90 transition-opacity cursor-pointer"
           >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 50vw, 33vw"
-            />
+            {renderImage(image, true)}
           </button>
         ))}
       </div>
@@ -90,12 +117,7 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
           </button>
 
           <div className="relative w-full max-w-4xl aspect-video mx-4">
-            <Image
-              src={images[currentIndex].src}
-              alt={images[currentIndex].alt}
-              fill
-              className="object-contain"
-            />
+            {renderImage(images[currentIndex], false)}
           </div>
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">

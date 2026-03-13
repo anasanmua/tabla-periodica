@@ -6,13 +6,13 @@ export function Footer() {
       <div className="max-w-4xl mx-auto px-4 py-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <div className="text-center md:text-left">
-            <span>Copyright 2020 - Todos los derechos reservados - Diseno y desarrollo web: </span>
+            <span>Copyright 2026 - Todos los derechos reservados - Diseno y desarrollo web: </span>
             <Link 
-              href="https://businessgo.es" 
+              href="https://github.com/anasanmua"
               target="_blank" 
               className="text-yellow-400 hover:text-yellow-300"
             >
-              BusinessGo!
+              Ana Sánchez Muñoz
             </Link>
           </div>
           <div className="flex items-center gap-4">

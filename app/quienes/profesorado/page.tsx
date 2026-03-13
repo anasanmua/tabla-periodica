@@ -3,15 +3,15 @@ import { ImageGallery } from "@/components/shared/image-gallery"
 
 const profesoradoImages = [
   {
-    src: "/images/quienes/profesorado-1.jpg",
+    src: "/images/students/profesorado-1.jpg",
     alt: "Equipo de profesores de Quimica Inorganica"
   },
   {
-    src: "/images/quienes/profesorado-2.jpg",
+    src: "/images/students/profesorado-2.jpg",
     alt: "Profesores durante el evento"
   },
   {
-    src: "/images/quienes/profesorado-3.jpg",
+    src: "/images/students/profesorado-3.jpg",
     alt: "Profesores organizando el desfile"
   },
 ]
