@@ -85,7 +85,7 @@ pnpm add -D [package]  # dev dependencies
 ## 🎨 Style guide
 
 ### Project colors:
-- Main blue: `#1a3a5c`
+- Main blue: `#122562`
 - Backgrounds: `bg-white`, `bg-gray-100`
 - Text: `text-gray-700`, `text-gray-600`
 

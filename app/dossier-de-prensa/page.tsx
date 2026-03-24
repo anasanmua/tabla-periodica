@@ -45,7 +45,7 @@ export default function DossierPrensaPage() {
   return (
     <div className="bg-white py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-2xl md:text-3xl font-bold text-[#1a3a5c] text-center mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-primary text-center mb-8">
           Dossier de prensa
         </h1>
         
@@ -65,14 +65,14 @@ export default function DossierPrensaPage() {
               
               <div className="md:w-2/3">
                 <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                  <span className="text-[#1a3a5c] font-medium">{article.source}</span>
+                  <span className="text-primary font-medium">{article.source}</span>
                   <span>/</span>
                   <span>{article.category}</span>
                   <span>/</span>
                   <span>{article.date}</span>
                 </div>
                 
-                <h2 className="text-lg font-bold text-[#1a3a5c] mb-3 leading-tight">
+                <h2 className="text-lg font-bold text-primary mb-3 leading-tight">
                   {article.title}
                 </h2>
                 
@@ -82,7 +82,7 @@ export default function DossierPrensaPage() {
                 
                 <Button
                   variant="outline"
-                  className="border-[#1a3a5c] text-[#1a3a5c] hover:bg-[#1a3a5c] hover:text-white"
+                  className="border-primary text-primary hover:bg-primary hover:text-white"
                   asChild
                 >
                   <Link href="#">LEER MAS</Link>

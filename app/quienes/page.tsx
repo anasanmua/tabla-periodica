@@ -5,7 +5,7 @@ export default function QuienesPage() {
   return (
     <div className="bg-white py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-2xl md:text-3xl font-bold text-[#1a3a5c] text-center mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-primary text-center mb-8">
           Quienes Somos
         </h1>
         
@@ -13,7 +13,7 @@ export default function QuienesPage() {
           <Link href="/quienes/profesorado">
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
               <CardContent className="p-6 text-center">
-                <h2 className="text-xl font-semibold text-[#1a3a5c] mb-2">
+                <h2 className="text-xl font-semibold text-primary mb-2">
                   Profesorado Quimica Inorganica
                 </h2>
                 <p className="text-gray-600">
@@ -26,7 +26,7 @@ export default function QuienesPage() {
           <Link href="/quienes/alumnado">
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
               <CardContent className="p-6 text-center">
-                <h2 className="text-xl font-semibold text-[#1a3a5c] mb-2">
+                <h2 className="text-xl font-semibold text-primary mb-2">
                   Alumnado Facultad de Quimica
                 </h2>
                 <p className="text-gray-600">

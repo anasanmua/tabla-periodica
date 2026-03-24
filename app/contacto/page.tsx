@@ -53,7 +53,7 @@ export default function ContactoPage() {
                 required
                 value={formData.nombre}
                 onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                className="border-[#1a3a5c] focus:ring-[#1a3a5c]"
+                className="border-primary focus:ring-primary"
               />
             </div>
 
@@ -67,7 +67,7 @@ export default function ContactoPage() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="border-[#1a3a5c] focus:ring-[#1a3a5c]"
+                className="border-primary focus:ring-primary"
               />
             </div>
 
@@ -80,7 +80,7 @@ export default function ContactoPage() {
                 type="text"
                 value={formData.asunto}
                 onChange={(e) => setFormData({ ...formData, asunto: e.target.value })}
-                className="border-[#1a3a5c] focus:ring-[#1a3a5c]"
+                className="border-primary focus:ring-primary"
               />
             </div>
 
@@ -93,7 +93,7 @@ export default function ContactoPage() {
                 rows={6}
                 value={formData.mensaje}
                 onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
-                className="border-[#1a3a5c] focus:ring-[#1a3a5c]"
+                className="border-primary focus:ring-primary"
               />
             </div>
 
@@ -112,7 +112,7 @@ export default function ContactoPage() {
 
             <Button
               type="submit"
-              className="w-full bg-[#1a3a5c] hover:bg-[#2a4a6c] text-white py-3"
+              className="w-full bg-primary hover:bg-primary-hover text-white py-3"
             >
               ENVIAR
             </Button>

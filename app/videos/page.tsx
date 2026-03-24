@@ -5,7 +5,7 @@ export default function VideosPage() {
   return (
     <div className="bg-white py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-2xl md:text-3xl font-bold text-[#1a3a5c] text-center mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-primary text-center mb-8">
           Videos
         </h1>
         
@@ -13,7 +13,7 @@ export default function VideosPage() {
           <Link href="/videos/un-desfile-con-mucha-quimica">
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
               <CardContent className="p-6 text-center">
-                <h2 className="text-xl font-semibold text-[#1a3a5c] mb-2">
+                <h2 className="text-xl font-semibold text-primary mb-2">
                   Un Desfile Con Mucha Quimica
                 </h2>
                 <p className="text-gray-600">
@@ -26,7 +26,7 @@ export default function VideosPage() {
           <Link href="/videos/la-ca-ta-am-fr-y-ag">
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
               <CardContent className="p-6 text-center">
-                <h2 className="text-xl font-semibold text-[#1a3a5c] mb-2">
+                <h2 className="text-xl font-semibold text-primary mb-2">
                   La, Ca, Ta, Am, Fr Y Ag
                 </h2>
                 <p className="text-gray-600">

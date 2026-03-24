@@ -37,7 +37,7 @@ export default function BookPage() {
   return (
     <div className="bg-white py-12 px-4">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-2xl md:text-3xl font-bold text-[#1a3a5c] text-center mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-primary text-center mb-8">
           El libro de los elementos
         </h1>
         
@@ -63,7 +63,7 @@ export default function BookPage() {
         <div className="text-center">
           <Button
             asChild
-            className="bg-[#1a3a5c] hover:bg-[#2a4a6c] text-white px-8"
+            className="bg-primary hover:bg-primary-hover text-white px-8"
           >
             <a href="/pdf/libro_de_los_elementos.pdf" className="inline-flex items-center gap-2" download>
               <Download className="w-4 h-4" />

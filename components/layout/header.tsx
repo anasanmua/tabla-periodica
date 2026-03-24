@@ -57,8 +57,7 @@ export function Header() {
 
   return (
     <header className="w-full">
-      {/* Top bar */}
-      <div className="bg-[#1a3a5c] text-white text-sm py-2 px-4">
+      <div className="bg-primary text-white text-sm py-2 px-4">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-4">
             <Clock className="w-4 h-4" />
@@ -110,8 +109,8 @@ export function Header() {
                   href={item.href}
                   className={cn(
                     "flex items-center gap-1 px-4 py-3 text-sm font-medium transition-colors",
-                    "text-gray-700 hover:bg-[#1a3a5c] hover:text-white",
-                    "group-hover:bg-[#1a3a5c] group-hover:text-white",
+                    "text-gray-700 hover:bg-primary hover:text-white",
+                    "group-hover:bg-primary group-hover:text-white",
                   )}
                 >
                   {item.name}
@@ -123,7 +122,7 @@ export function Header() {
                       <Link
                         key={subitem.name}
                         href={subitem.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#1a3a5c]"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary"
                       >
                         {subitem.name}
                       </Link>

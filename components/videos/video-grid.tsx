@@ -35,7 +35,7 @@ export function VideoGrid({ videos }: VideoGridProps) {
             />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
-                <Play className="w-6 h-6 text-[#1a3a5c] ml-1" />
+                <Play className="w-6 h-6 text-primary ml-1" />
               </div>
             </div>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">

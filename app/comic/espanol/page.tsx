@@ -36,7 +36,7 @@ export default function ComicEspanolPage() {
   return (
     <div className="bg-white py-12 px-4">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-2xl md:text-3xl font-bold text-[#1a3a5c] text-center mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-primary text-center mb-8">
           Comic de la Tabla Periodica Espanol
         </h1>
         

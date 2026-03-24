@@ -29,7 +29,7 @@ export default function Home() {
 
       {/* Noche de los Investigadores */}
       <section className="bg-white/90 backdrop-blur-sm py-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#1a3a5c] mb-2">
+        <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">
           Noche de los Investigadores!
         </h2>
         <p className="text-gray-600">Fecha: 27 de Noviembre</p>
@@ -38,7 +38,7 @@ export default function Home() {
       {/* Bienvenidos Section */}
       <section className="bg-white/90 backdrop-blur-sm py-12 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1a3a5c] mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
             Bienvenidos!
           </h2>
 
@@ -88,7 +88,7 @@ export default function Home() {
       </section>
 
       {/* Download Book Section */}
-      <section className="bg-[#1a3a5c] py-8 px-4">
+      <section className="bg-primary py-8 px-4">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-white text-center md:text-left">
             <h3 className="text-2xl md:text-3xl font-bold mb-1">
@@ -99,7 +99,7 @@ export default function Home() {
           <div className="text-center">
             <Button
               asChild
-              className="bg-white text-[#1a3a5c] hover:bg-gray-100 font-semibold px-6 py-2"
+              className="bg-white text-primary hover:bg-gray-100 font-semibold px-6 py-2"
             >
               <a
                 href="/pdf/libro_de_los_elementos.pdf" download>
