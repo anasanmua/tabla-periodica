@@ -1,3 +1,5 @@
+import { VimeoPlayer } from "@/components/videos/vimeo-player"
+
 export default function DesfileVideoPage() {
   return (
     <div className="bg-white py-12 px-4">
@@ -6,12 +8,9 @@ export default function DesfileVideoPage() {
           Un desfile con mucha quimica
         </h1>
         
-        <div className="aspect-video w-full max-w-3xl mx-auto rounded overflow-hidden shadow-lg">
-          <iframe
-            src="https://player.vimeo.com/video/367892254"
-            className="w-full h-full"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
+        <div className="max-w-3xl mx-auto shadow-lg">
+          <VimeoPlayer
+            vimeoId="344275544"
             title="Un desfile con mucha quimica"
           />
         </div>

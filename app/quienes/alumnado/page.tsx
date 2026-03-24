@@ -12,7 +12,7 @@ export default function AlumnadoPage() {
           Alumnado Facultad de Quimica
         </h1>
         
-        <ImageGallery images={studentGalleryImages} columns={3} />
+        <ImageGallery images={studentGalleryImages} columns={3} useCloudinary />
       </div>
     </div>
   )

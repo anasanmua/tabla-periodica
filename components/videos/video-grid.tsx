@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useState } from "react"
 import { Play, X } from "lucide-react"
+import { VimeoPlayer } from "@/components/videos/vimeo-player"
 
 interface Video {
   id: string
@@ -47,22 +48,23 @@ export function VideoGrid({ videos }: VideoGridProps) {
 
       {/* Video Modal */}
       {activeVideo && (
-        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 cursor-pointer"
+          onClick={(e) => { if (e.target === e.currentTarget) setActiveVideo(null) }}
+        >
           <button
             onClick={() => setActiveVideo(null)}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
+            className="absolute top-4 right-4 text-white hover:text-gray-300 z-10 cursor-pointer"
             aria-label="Cerrar"
           >
             <X className="w-8 h-8" />
           </button>
 
-          <div className="w-full max-w-4xl aspect-video">
-            <iframe
-              src={`https://player.vimeo.com/video/${activeVideo.vimeoId}?autoplay=1`}
-              className="w-full h-full"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
+          <div className="w-full max-w-4xl">
+            <VimeoPlayer
+              vimeoId={activeVideo.vimeoId}
               title={activeVideo.title}
+              autoplay
             />
           </div>
         </div>

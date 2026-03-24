@@ -1,25 +1,35 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { redis } from "@/lib/redis";
 
-const DOWNLOADS_KEY = "book:downloads";
-const INITIAL_COUNT = 2170;
+const DEFAULTS: Record<string, number> = {
+  "book:downloads": 2171,
+  "comic-es:downloads": 8427,
+  "comic-en:downloads": 576,
+};
 
-export async function GET() {
+function getKey(request: NextRequest): string {
+  return request.nextUrl.searchParams.get("key") ?? "book:downloads";
+}
+
+export async function GET(request: NextRequest) {
   try {
-    const count = await redis.get<number>(DOWNLOADS_KEY);
-    return NextResponse.json({ count: count ?? INITIAL_COUNT });
+    const key = getKey(request);
+    const count = await redis.get<number>(key);
+    return NextResponse.json({ count: count ?? DEFAULTS[key] ?? 0 });
   } catch {
-    return NextResponse.json({ count: INITIAL_COUNT });
+    const key = getKey(request);
+    return NextResponse.json({ count: DEFAULTS[key] ?? 0 });
   }
 }
 
-export async function POST() {
+export async function POST(request: NextRequest) {
   try {
-    const exists = await redis.exists(DOWNLOADS_KEY);
+    const key = getKey(request);
+    const exists = await redis.exists(key);
     if (!exists) {
-      await redis.set(DOWNLOADS_KEY, INITIAL_COUNT);
+      await redis.set(key, DEFAULTS[key] ?? 0);
     }
-    const count = await redis.incr(DOWNLOADS_KEY);
+    const count = await redis.incr(key);
     return NextResponse.json({ count });
   } catch {
     return NextResponse.json(

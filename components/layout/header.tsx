@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import xIcon from "@/public/images/logos/x.svg";
@@ -37,16 +38,7 @@ const navigation = [
       { name: "Comic De La Tabla Periodica Ingles", href: "/comic/ingles" },
     ],
   },
-  {
-    name: "Multimedia",
-    href: "/multimedia",
-    submenu: [
-      {
-        name: "Posters Alumnado 2020/2021",
-        href: "/multimedia/posters-alumnado-2020-2021",
-      },
-    ],
-  },
+
   { name: "Dossier de prensa", href: "/dossier-de-prensa" },
   { name: "Contacto", href: "/contacto" },
 ];
@@ -54,6 +46,12 @@ const navigation = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
     const date = new Date().toLocaleDateString('es-ES', {
         year: 'numeric',
         month: 'long',
@@ -116,6 +114,7 @@ export function Header() {
                     "flex items-center gap-1 px-4 py-3 text-sm font-medium transition-colors",
                     "text-gray-700 hover:bg-primary hover:text-white",
                     "group-hover:bg-primary group-hover:text-white",
+                    isActive(item.href) && "bg-primary text-white",
                   )}
                 >
                   {item.name}
@@ -127,7 +126,10 @@ export function Header() {
                       <Link
                         key={subitem.name}
                         href={subitem.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary"
+                        className={cn(
+                          "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary",
+                          isActive(subitem.href) && "bg-gray-100 text-primary font-medium",
+                        )}
                       >
                         {subitem.name}
                       </Link>
@@ -162,7 +164,10 @@ export function Header() {
               <div key={item.name}>
                 <Link
                   href={item.href}
-                  className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100 border-b border-gray-100"
+                  className={cn(
+                    "block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100 border-b border-gray-100",
+                    isActive(item.href) && "bg-primary text-white hover:bg-primary",
+                  )}
                   onClick={() => !item.submenu && setMobileMenuOpen(false)}
                 >
                   <span className="flex items-center justify-between">
@@ -176,7 +181,10 @@ export function Header() {
                       <Link
                         key={subitem.name}
                         href={subitem.href}
-                        className="block px-8 py-2 text-sm text-gray-600 hover:bg-gray-100"
+                        className={cn(
+                          "block px-8 py-2 text-sm text-gray-600 hover:bg-gray-100",
+                          isActive(subitem.href) && "text-primary font-medium bg-gray-100",
+                        )}
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {subitem.name}

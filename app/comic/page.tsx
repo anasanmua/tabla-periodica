@@ -27,7 +27,7 @@ export default function ComicPage() {
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
               <CardContent className="p-6 text-center">
                 <h2 className="text-xl font-semibold text-primary mb-2">
-                  Comic en Ingles
+                  Comic en Inglés
                 </h2>
                 <p className="text-gray-600">
                   English version of the comic

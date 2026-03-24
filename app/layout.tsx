@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${raleway.variable} font-sans antialiased bg-fixed bg-cover bg-center bg-no-repeat`}
+        className={`${raleway.variable} font-sans antialiased bg-fixed bg-cover bg-center bg-no-repeat min-h-screen flex flex-col`}
         style={{
           backgroundImage: "url('/images/bg.png')",
           width: "70%",
@@ -51,7 +51,7 @@ export default function RootLayout({
         }}
       >
         <Header />
-        <main className="min-h-screen">
+        <main className="flex-1">
           {children}
         </main>
         <Footer />

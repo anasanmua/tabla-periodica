@@ -30,7 +30,7 @@ export default function ProfesoradoPage() {
         <h1 className="text-2xl md:text-3xl font-bold text-primary text-center mb-8">
           Profesorado Quimica Inorganica
         </h1>
-        <ImageGallery images={teachersGalleryImages} columns={3} />
+        <ImageGallery images={teachersGalleryImages} columns={3} useCloudinary />
       </div>
     </div>
   )

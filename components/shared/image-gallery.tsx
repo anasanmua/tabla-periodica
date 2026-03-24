@@ -1,79 +1,67 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { CldImage } from 'next-cloudinary'
-import { useState } from "react"
-import { X, ChevronLeft, ChevronRight } from "lucide-react"
-import { cn } from "@/lib/utils"
+import Image from "next/image";
+import { CldImage } from "next-cloudinary";
+import { useState } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface GalleryImage {
-  src: string
-  alt: string
-  isCloudinary?: boolean // Indica si es un ID de Cloudinary o URL estática
+  src: string;
+  alt: string;
 }
 
 interface ImageGalleryProps {
-  images: GalleryImage[]
-  columns?: 2 | 3 | 4
-  useCloudinary?: boolean // Por defecto para toda la galería
+  images: GalleryImage[];
+  columns?: 1 | 2 | 3 | 4;
+  useCloudinary?: boolean;
 }
 
-export function ImageGallery({ images, columns = 3, useCloudinary = false }: ImageGalleryProps) {
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  // Helper para renderizar imagen según tipo
+export function ImageGallery({
+  images,
+  columns = 3,
+}: ImageGalleryProps) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const renderImage = (image: GalleryImage, isThumbnail: boolean = false) => {
-    const isCloudinaryImage = image.isCloudinary ?? useCloudinary
-
-    if (isCloudinaryImage) {
-      return (
-        <CldImage
-          src={image.src}
-          alt={image.alt}
-          fill
-          crop={isThumbnail ? "fill" : "fit"}
-          gravity="auto"
-          quality="auto"
-          format="auto"
-          sizes={isThumbnail ? "(max-width: 768px) 50vw, 33vw" : "100vw"}
-        />
-      )
-    } else {
-      return (
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          className={isThumbnail ? "object-cover" : "object-contain"}
-          sizes={isThumbnail ? "(max-width: 768px) 50vw, 33vw" : "100vw"}
-        />
-      )
-    }
-  }
+    return (
+      <CldImage
+        src={image.src}
+        alt={image.alt}
+        width={isThumbnail ? 400 : 1200}
+        height={isThumbnail ? 300 : 900}
+        crop={isThumbnail ? "fill" : "fit"}
+        gravity="auto"
+        quality="auto"
+        format="auto"
+        sizes={isThumbnail ? "(max-width: 768px) 50vw, 33vw" : "100vw"}
+      />
+    );
+  };
 
   const openLightbox = (index: number) => {
-    setCurrentIndex(index)
-    setLightboxOpen(true)
-  }
+    setCurrentIndex(index);
+    setLightboxOpen(true);
+  };
 
   const closeLightbox = () => {
-    setLightboxOpen(false)
-  }
+    setLightboxOpen(false);
+  };
 
   const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-  }
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
-  }
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
 
   const columnClass = {
+    1: "grid-cols-1",
     2: "grid-cols-2",
     3: "grid-cols-2 md:grid-cols-3",
     4: "grid-cols-2 md:grid-cols-4",
-  }
+  };
 
   return (
     <>
@@ -91,10 +79,15 @@ export function ImageGallery({ images, columns = 3, useCloudinary = false }: Ima
 
       {/* Lightbox */}
       {lightboxOpen && (
-        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center">
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center cursor-pointer"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) closeLightbox();
+          }}
+        >
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
+            className="absolute top-4 right-4 text-white hover:text-gray-300 z-10 cursor-pointer"
             aria-label="Cerrar"
           >
             <X className="w-8 h-8" />
@@ -102,7 +95,7 @@ export function ImageGallery({ images, columns = 3, useCloudinary = false }: Ima
 
           <button
             onClick={goToPrevious}
-            className="absolute left-4 text-white hover:text-gray-300 z-10"
+            className="absolute left-4 text-white hover:text-gray-300 z-10 cursor-pointer"
             aria-label="Anterior"
           >
             <ChevronLeft className="w-10 h-10" />
@@ -110,7 +103,7 @@ export function ImageGallery({ images, columns = 3, useCloudinary = false }: Ima
 
           <button
             onClick={goToNext}
-            className="absolute right-4 text-white hover:text-gray-300 z-10"
+            className="absolute right-4 text-white hover:text-gray-300 z-10 cursor-pointer"
             aria-label="Siguiente"
           >
             <ChevronRight className="w-10 h-10" />
@@ -126,5 +119,5 @@ export function ImageGallery({ images, columns = 3, useCloudinary = false }: Ima
         </div>
       )}
     </>
-  )
+  );
 }

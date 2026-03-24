@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { SponsorsSection } from "@/components/home/sponsors-section";
 import { DownloadSection } from "@/components/home/download-section";
+import { CloudinaryVideo } from "@/components/videos/cloudinary-video";
 
 export default function Home() {
   return (
@@ -50,11 +51,8 @@ export default function Home() {
             </div>
 
             <div className="aspect-video bg-gray-100 rounded overflow-hidden">
-              <iframe
-                src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/video/upload/promocion_desfile_sxqpaj.mp4`}
-                className="w-full h-full"
-                allow=" fullscreen; picture-in-picture"
-                allowFullScreen
+              <CloudinaryVideo
+                publicId="promocion_desfile_sxqpaj"
                 title="Un desfile con mucha quimica"
               />
             </div>

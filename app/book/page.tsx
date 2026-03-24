@@ -1,10 +1,12 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Download } from "lucide-react"
+import { DownloadButton } from "@/components/shared/download-button";
+import { bookGalleryImages } from "@/lib/cloudinary-gallery";
+import { ImageGallery } from "@/components/shared/image-gallery";
 
 const bookPages = [
-  { src: "/images/book/book-cover.jpg", alt: "El baile de los elementos - Portada" },
+  {
+    src: "/images/book/book-cover.jpg",
+    alt: "El baile de los elementos - Portada",
+  },
   { src: "/images/book/book-intro.jpg", alt: "Introduccion" },
   { src: "/images/book/book-page-1.jpg", alt: "Pagina del libro" },
   { src: "/images/book/book-li.jpg", alt: "Litio" },
@@ -31,48 +33,27 @@ const bookPages = [
   { src: "/images/book/book-fr.jpg", alt: "Francio" },
   { src: "/images/book/book-u.jpg", alt: "Uranio" },
   { src: "/images/book/book-am.jpg", alt: "Americio" },
-]
+];
 
 export default function BookPage() {
   return (
     <div className="bg-white py-12 px-4">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-2xl md:text-3xl font-bold text-primary text-center mb-8">
-          El libro de los elementos
+          Alumnado Facultad de Quimica
         </h1>
-        
-        {/* Book pages grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-          {bookPages.map((page, index) => (
-            <div
-              key={index}
-              className="relative aspect-[3/4] overflow-hidden rounded bg-gray-100 shadow-sm"
-            >
-              <Image
-                src={page.src}
-                alt={page.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-            </div>
-          ))}
-        </div>
-        
-        {/* Download button */}
-        <div className="text-center">
-          <Button
-            asChild
-            className="bg-primary hover:bg-primary-hover text-white px-8"
-          >
-            <a href="/pdf/libro_de_los_elementos.pdf" className="inline-flex items-center gap-2" download>
-              <Download className="w-4 h-4" />
-              DESCARGAR LIBRO
-            </a>
-          </Button>
-          <p className="text-gray-500 text-sm mt-3">2166 descargas</p>
+
+        <ImageGallery images={bookGalleryImages} columns={3} useCloudinary />
+
+        <div className="mt-8">
+          <DownloadButton
+            downloadKey="book:downloads"
+            className="bg-primary hover:bg-primary-hover text-white"
+            countClassName="text-gray-500"
+            showIcon
+          />
         </div>
       </div>
     </div>
-  )
+  );
 }
