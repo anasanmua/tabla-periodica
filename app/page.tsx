@@ -1,7 +1,7 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { SponsorsSection } from "@/components/home/sponsors-section"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { SponsorsSection } from "@/components/home/sponsors-section";
 
 export default function Home() {
   return (
@@ -41,20 +41,39 @@ export default function Home() {
           <h2 className="text-2xl md:text-3xl font-bold text-[#1a3a5c] mb-6">
             Bienvenidos!
           </h2>
-          
+
           <div className="grid md:grid-cols-2 gap-8 items-start">
             <div className="prose prose-sm max-w-none text-gray-700 leading-relaxed">
               <p className="mb-4">
-                Los elementos de la Tabla Periodica son los bloques de construccion de los que esta hecho nuestro mundo. Aprovechando que el ano 2019 se celebro el Ano Internacional de la Tabla Periodica con motivo del 150 aniversario de su creacion, algunos de los elementos de esta Tabla salieron a pasear por Sevilla para acercar la quimica, una ciencia esencial para el progreso de la humanidad, a los mas jovenes.
+                Los elementos de la Tabla Periodica son los bloques de
+                construccion de los que esta hecho nuestro mundo. Aprovechando
+                que el ano 2019 se celebro el Ano Internacional de la Tabla
+                Periodica con motivo del 150 aniversario de su creacion, algunos
+                de los elementos de esta Tabla salieron a pasear por Sevilla
+                para acercar la quimica, una ciencia esencial para el progreso
+                de la humanidad, a los mas jovenes.
               </p>
               <p className="mb-4">
-                Con este objetivo, 25 alumnas y alumnos de la Facultad de Quimica en la Universidad de Sevilla se disfrazaron de elementos quimicos y desfilaron frente a alumnado de secundaria en la Casa de la Ciencia del CSIC en Sevilla.
+                Con este objetivo, 25 alumnas y alumnos de la Facultad de
+                Quimica en la Universidad de Sevilla se disfrazaron de elementos
+                quimicos y desfilaron frente a alumnado de secundaria en la Casa
+                de la Ciencia del CSIC en Sevilla.
               </p>
               <p>
-                A lo largo de este proyecto hemos ido desarrollando materiales didacticos que pueden encontrarse en esta web. En ella puedes encontrar un video-resumen del desfile y seis videos monograficos dedicados a otros tantos elementos, realizados por la cineasta Remedios Malvarez; un Book con fotos de los elementos protagonistas disenado por Jose Antonio Sencianes, de la Casa de la Ciencia y un comic realizado por la artista grafica Raquel Garcia Ulldemolins, RaquelGU, que ha dado una nueva vida a los elementos de la Tabla Periodica y esta teniendo una gran repercusion. Esperemos que los elementos del comic lleguen muy lejos en la version inglesa de Tim Gutteridge.
+                A lo largo de este proyecto hemos ido desarrollando materiales
+                didacticos que pueden encontrarse en esta web. En ella puedes
+                encontrar un video-resumen del desfile y seis videos
+                monograficos dedicados a otros tantos elementos, realizados por
+                la cineasta Remedios Malvarez; un Book con fotos de los
+                elementos protagonistas disenado por Jose Antonio Sencianes, de
+                la Casa de la Ciencia y un comic realizado por la artista
+                grafica Raquel Garcia Ulldemolins, RaquelGU, que ha dado una
+                nueva vida a los elementos de la Tabla Periodica y esta teniendo
+                una gran repercusion. Esperemos que los elementos del comic
+                lleguen muy lejos en la version inglesa de Tim Gutteridge.
               </p>
             </div>
-            
+
             <div className="aspect-video bg-gray-100 rounded overflow-hidden">
               <iframe
                 src="https://player.vimeo.com/video/367892254"
@@ -72,7 +91,9 @@ export default function Home() {
       <section className="bg-[#1a3a5c] py-8 px-4">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-white text-center md:text-left">
-            <h3 className="text-2xl md:text-3xl font-bold mb-1">El baile de los elementos</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-1">
+              El baile de los elementos
+            </h3>
             <p className="text-gray-300">Descargete nuestro libro!</p>
           </div>
           <div className="text-center">
@@ -80,7 +101,10 @@ export default function Home() {
               asChild
               className="bg-white text-[#1a3a5c] hover:bg-gray-100 font-semibold px-6 py-2"
             >
-              <Link href="/book">DESCARGAR LIBRO</Link>
+              <a
+                href="/pdf/libro_de_los_elementos.pdf" download>
+                DESCARGAR LIBRO
+              </a>
             </Button>
             <p className="text-gray-400 text-sm mt-2">2166 descargas</p>
           </div>
@@ -90,5 +114,5 @@ export default function Home() {
       {/* Sponsors Section */}
       <SponsorsSection />
     </div>
-  )
+  );
 }

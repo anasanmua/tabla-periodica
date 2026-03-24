@@ -1,5 +1,9 @@
 import Image from "next/image"
 import { ImageGallery } from "@/components/shared/image-gallery"
+import {
+  bookGalleryImages,
+  teachersGalleryImages,
+} from "@/lib/cloudinary-gallery";
 
 const profesoradoImages = [
   {
@@ -16,6 +20,9 @@ const profesoradoImages = [
   },
 ]
 
+console.log(bookGalleryImages.length, "hello1")
+
+
 export default function ProfesoradoPage() {
   return (
     <div className="bg-white py-12 px-4">
@@ -23,8 +30,7 @@ export default function ProfesoradoPage() {
         <h1 className="text-2xl md:text-3xl font-bold text-[#1a3a5c] text-center mb-8">
           Profesorado Quimica Inorganica
         </h1>
-        
-        <ImageGallery images={profesoradoImages} columns={3} />
+        <ImageGallery images={teachersGalleryImages} columns={3} />
       </div>
     </div>
   )

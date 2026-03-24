@@ -65,10 +65,10 @@ export default function BookPage() {
             asChild
             className="bg-[#1a3a5c] hover:bg-[#2a4a6c] text-white px-8"
           >
-            <Link href="#" className="inline-flex items-center gap-2">
+            <a href="/pdf/libro_de_los_elementos.pdf" className="inline-flex items-center gap-2" download>
               <Download className="w-4 h-4" />
               DESCARGAR LIBRO
-            </Link>
+            </a>
           </Button>
           <p className="text-gray-500 text-sm mt-3">2166 descargas</p>
         </div>

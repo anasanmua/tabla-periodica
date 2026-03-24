@@ -11,10 +11,10 @@ const navigation = [
   { name: "Inicio", href: "/" },
   {
     name: "Quienes",
-    href: "/students",
+    href: "/quienes",
     submenu: [
-      { name: "Profesorado Quimica Inorganica", href: "/students/profesorado" },
-      { name: "Alumnado Facultad de Quimica", href: "/students/alumnado" },
+      { name: "Profesorado Quimica Inorganica", href: "/quienes/profesorado" },
+      { name: "Alumnado Facultad de Quimica", href: "/quienes/alumnado" },
     ],
   },
   { name: "Book", href: "/book" },
