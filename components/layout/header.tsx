@@ -54,6 +54,11 @@ const navigation = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+    const date = new Date().toLocaleDateString('es-ES', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    })
 
   return (
     <header className="w-full">
@@ -61,7 +66,7 @@ export function Header() {
         <div className="max-w-4xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-4">
             <Clock className="w-4 h-4" />
-            <span>marzo 11, 2026</span>
+            <span>{date}</span>
             <span>150 Aniversario de la Tabla Periodica</span>
           </div>
           <Link
