@@ -1,5 +1,6 @@
-import Image from "next/image"
+"use client"
 import Link from "next/link"
+import { CldImage } from "next-cloudinary"
 import { Button } from "@/components/ui/button"
 
 const articles = [
@@ -10,7 +11,8 @@ const articles = [
     date: "29 mayo, 2019",
     category: "Prensa",
     source: "US Quimica",
-    image: "/images/prensa/prensa-1.jpg"
+    publicId: "tabla_sentados_3_vzxebc",
+    hrf: "dossier-de-prensa/carta-a-los-elementos-de-la-tabla-periodica"
   },
   {
     id: 2,
@@ -19,7 +21,8 @@ const articles = [
     date: "24 mayo, 2019",
     category: "Prensa",
     source: "US Quimica",
-    image: "/images/prensa/prensa-2.jpg"
+    publicId: "15_p3-scaled_d0x2on",
+    hrf: "dossier-de-prensa/estudiantes-de-quimica-de-la-us-celebran-un-desfile-de-los-elementos-en-la-casa-de-la-ciencia-de-sevilla"
   },
   {
     id: 3,
@@ -28,7 +31,8 @@ const articles = [
     date: "24 mayo, 2019",
     category: "Prensa",
     source: "US Quimica",
-    image: "/images/prensa/prensa-3.jpg"
+    publicId: "33_as-scaled_mvh770",
+    hrf: "dossier-de-prensa/estudiantes-de-la-us-celebran-un-desfile-de-los-elementos-en-la-casa-de-la-ciencia"
   },
   {
     id: 4,
@@ -37,7 +41,8 @@ const articles = [
     date: "23 mayo, 2019",
     category: "Prensa",
     source: "US Quimica",
-    image: "/images/prensa/prensa-4.jpg"
+    publicId: "mg_9669-scaled_t2utur",
+    hrf: "dossier-de-prensa/desfile-de-los-elementos-de-los-estudiantes-de-quimica"
   },
 ]
 
@@ -53,12 +58,17 @@ export default function DossierPrensaPage() {
           {articles.map((article) => (
             <article key={article.id} className="flex flex-col md:flex-row gap-6 pb-8 border-b border-gray-200">
               <div className="md:w-1/3 flex-shrink-0">
-                <div className="relative aspect-[4/3] overflow-hidden rounded">
-                  <Image
-                    src={article.image}
+                <div className="overflow-hidden rounded aspect-[4/3]">
+                  <CldImage
+                    src={article.publicId}
                     alt={article.title}
-                    fill
-                    className="object-cover"
+                    width={400}
+                    height={300}
+                    crop="fill"
+                    gravity="auto"
+                    quality="auto"
+                    format="auto"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
@@ -85,7 +95,7 @@ export default function DossierPrensaPage() {
                   className="border-primary text-primary hover:bg-primary hover:text-white"
                   asChild
                 >
-                  <Link href="#">LEER MAS</Link>
+                  <Link href={article.hrf}>LEER MAS</Link>
                 </Button>
               </div>
             </article>
