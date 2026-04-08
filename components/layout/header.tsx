@@ -68,7 +68,7 @@ export function Header() {
             <span>150 Aniversario de la Tabla Periodica</span>
           </div>
           <Link
-            href="https://twitter.com"
+            href="https://x.com/150TP_USCSIC"
             target="_blank"
             className="hover:text-gray-300 transition-colors"
             aria-label="Twitter"

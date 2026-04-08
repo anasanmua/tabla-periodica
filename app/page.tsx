@@ -27,7 +27,7 @@ export default function Home() {
         <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">
           ¡Noche de los Investigadores!
         </h2>
-        <p className="text-gray-600">Fecha: 27 de Noviembre</p>
+        <p className="text-gray-600">Fecha: 25 de Septiembre</p>
       </section>
 
       <section className="bg-white/90 backdrop-blur-sm py-12 px-4">

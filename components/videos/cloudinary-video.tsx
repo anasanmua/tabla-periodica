@@ -13,7 +13,7 @@ export function CloudinaryVideo({
 }: CloudinaryVideoProps) {
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const src = `https://res.cloudinary.com/${cloudName}/video/upload/q_auto/${publicId}.mp4`;
-  const defaultPoster = `https://res.cloudinary.com/${cloudName}/video/upload/so_0,w_800,h_450,c_fill,q_auto,f_auto/${publicId}.jpg`;
+  const defaultPoster = `https://res.cloudinary.com/${cloudName}/video/upload/so_auto,w_800,h_450,c_fill,q_auto,f_auto/${publicId}.jpg`;
 
   return (
     <div className={`aspect-video w-full rounded overflow-hidden ${className}`}>
