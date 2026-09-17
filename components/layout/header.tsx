@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, X, Clock } from "lucide-react";
+import { ChevronDown, Menu, X, Clock, Heart, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import xIcon from "@/public/images/logos/x.svg";
 
@@ -67,25 +67,36 @@ export function Header() {
             <span>{date}</span>
             <span>150 Aniversario de la Tabla Periodica</span>
           </div>
-          <Link
-            href="https://x.com/150TP_USCSIC"
-            target="_blank"
-            className="hover:text-gray-300 transition-colors"
-            aria-label="Twitter"
-          >
-            <Image
-              src={xIcon}
-              alt="X"
-              width={16}
-              height={16}
-              className="w-4 h-4 filter brightness-0 invert"
-            />
-          </Link>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://anasanchez.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-1 hover:text-gray-300 transition-colors"
+            >
+              Hecho con <Heart className="w-3.5 h-3.5 fill-red-500 text-red-500" /> por Ana
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
+            <Link
+              href="https://x.com/150TP_USCSIC"
+              target="_blank"
+              className="hover:text-gray-300 transition-colors"
+              aria-label="Twitter"
+            >
+              <Image
+                src={xIcon}
+                alt="X"
+                width={16}
+                height={16}
+                className="w-4 h-4 filter brightness-0 invert"
+              />
+            </Link>
+          </div>
         </div>
       </div>
 
       <div className="bg-white py-4 px-4">
-        <div className="max-w-4xl mx-auto flex justify-center items-center gap-6 flex-wrap">
+        <div className="max-w-4xl mx-auto flex justify-center items-center gap-4 md:gap-6 flex-wrap">
           <Image
             src="/images/logos/logo_header.jpg"
             alt="Universidad de Sevilla"
